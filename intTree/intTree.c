@@ -58,6 +58,16 @@ intTNode* funcintTNodeCreate (int value)
     return vpNew;
 }
 
+bool funcintTNodeLeaf (intTNode TNode)
+{
+    if ( TNode.LC==NULL && TNode.RC==NULL )
+    {
+        return true;
+    }
+    // else
+    return false;
+}
+
 void funcintTNodeFree (intTNode *pTNode)
 {
     pTNode->Value = 0;
@@ -73,9 +83,9 @@ void funcintTreeInit (intTree *pTree)
     pTree->H = NULL;
 }
 
-bool funcintTreeEmpty (intTree *pTree)
+bool funcintTreeEmpty (intTree pTree)
 {
-    if (pTree->H == NULL)
+    if (pTree.H == NULL)
     {
         return true;
     }
