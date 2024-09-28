@@ -21,7 +21,7 @@
 
 typedef struct intTNode
 {
-    int value;
+    int Value;
     struct intTNode *LC;
     struct intTNode *RC;
 } intTNode;
@@ -30,14 +30,30 @@ typedef struct intTNode
 
 void funcintTNodeInit (intTNode *pTNode)
 {
-    pTNode->value = 0;
+    pTNode->Value = 0;
     pTNode->LC = NULL;
     pTNode->RC = NULL;
 }
 
+intTNode* funcintTNodeCreate (int value)
+{
+
+    intTNode *vpNew = (intTNode*) malloc (sizeof(intTNode));
+    if ( vpNew == NULL )
+    {
+        printf ("the allocation has failled !\n");
+        exit (1);
+    }
+
+    funcintTNodeInit (vpNew);
+    vpNew->Value = value;
+
+    return vpNew;
+}
+
 void funcintTNodeFree (intTNode *pTNode)
 {
-    pTNode->value = 0;
+    pTNode->Value = 0;
     pTNode->LC = NULL;
     pTNode->RC = NULL;
     free (pTNode);
