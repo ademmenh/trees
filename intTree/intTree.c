@@ -93,3 +93,23 @@ bool funcintTreeEmpty (intTree pTree)
     return false;
 }
 
+void funcintTreeInsert (intTNode *pTNode, int value)
+{
+
+    if ( funcintNodeLeaf(*pTNode) )
+    {
+        intTNode *vpNew = funcintTNodeCreate (value);
+        pTNode = vpNew;
+    }
+    else
+    {
+        if ( pTNode->Value <= value )
+        {
+            funcintTreeInsert (pTNode->RC, value);
+        }
+        else
+        {
+            funcintTreeInsert (pTNode->LC, value);
+        }
+    }
+}
