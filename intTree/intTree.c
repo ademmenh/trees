@@ -182,3 +182,35 @@ void funcintTreeRemove (intTNode *pTNode, int value)
         funcintTreeRemove (pTNode->LC, value);
     }
 }
+
+
+
+int funcintInput ()
+{
+    int viInput;
+    printf ("Enter your value: ");
+    scanf ("%d", &viInput);
+    
+    return viInput;
+}
+
+
+
+void funcintTreeDisplay (intTNode *pTNode)
+{
+    if ( !funcintTNodeLeaf(*pTNode) )
+    {
+        printf ("%d ",pTNode->Value);
+        funcintTreeDisplay (pTNode->LC);
+        funcintTreeDisplay (pTNode->RC);
+    }
+}
+
+// int main ()
+// {
+
+//     intTree vtIntigers;
+//     funcintTreeInit (&vtIntigers);
+
+//     return 0;
+// }
