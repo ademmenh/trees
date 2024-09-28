@@ -28,5 +28,21 @@ typedef struct intTNode
 
 
 
+void funcintTNodeInit (intTNode *pTNode)
+{
+    pTNode->value = 0;
+    pTNode->LC = NULL;
+    pTNode->RC = NULL;
+}
+
+void funcintTNodeFree (intTNode *pTNode)
+{
+    pTNode->value = 0;
+    pTNode->LC = NULL;
+    pTNode->RC = NULL;
+    free (pTNode);
+}
+
+
 
 
