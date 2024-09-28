@@ -100,16 +100,85 @@ void funcintTreeInsert (intTNode *pTNode, int value)
     {
         intTNode *vpNew = funcintTNodeCreate (value);
         pTNode = vpNew;
+        return ;
+    }
+
+
+
+    if ( pTNode->Value <= value )
+    {
+        funcintTreeInsert (pTNode->RC, value);
     }
     else
     {
-        if ( pTNode->Value <= value )
+        funcintTreeInsert (pTNode->LC, value);
+    }
+
+}
+
+void funcintTreeRemove (intTNode *pTNode, int value)
+{
+
+    if ( pTNode==NULL )
+    {
+        printf ("the value was not found !");
+        return ;
+    }
+
+
+
+    if ( pTNode->Value == value )
+    {
+
+        intTNode *vpTemp;
+
+        if ( funcintTNodeLeaf(*pTNode) )
         {
-            funcintTreeInsert (pTNode->RC, value);
+            vpTemp = pTNode;
+            pTNode = NULL;
+            funcintTNodeFree(vpTemp);
+        }
+        else if ( pTNode->LC==NULL || pTNode->RC==NULL)
+        {
+            vpTemp = pTNode;
+
+            if ( pTNode->LC==NULL )
+            {
+                pTNode = pTNode->RC;
+            }
+            else
+            {
+                pTNode = pTNode->LC;
+            }
+
+            funcintTNodeFree(vpTemp);
         }
         else
         {
-            funcintTreeInsert (pTNode->LC, value);
+            // search for the MAX in the Left
+            // in this part pTNode->LC!=NULL && pTNode->RC!=NULL
+            intTNode *vpMAX = pTNode->LC;
+            while ( vpMAX!=NULL )
+            {
+                vpMAX = vpMAX->RC;
+            }
+            pTNode->Value = vpMAX->Value;
+            funcintTNodeFree (vpMAX);
         }
+
+        return ;
+    }
+
+
+
+
+
+    if ( pTNode->Value < value )
+    {
+        funcintTreeRemove (pTNode->RC, value);
+    }
+    else
+    {
+        funcintTreeRemove (pTNode->LC, value);
     }
 }
