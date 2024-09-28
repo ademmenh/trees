@@ -26,6 +26,13 @@ typedef struct intTNode
     struct intTNode *RC;
 } intTNode;
 
+typedef struct intTree
+{
+    intTNode *H;
+} intTree;
+
+
+
 
 
 void funcintTNodeInit (intTNode *pTNode)
@@ -61,4 +68,18 @@ void funcintTNodeFree (intTNode *pTNode)
 
 
 
+void funcintTreeInit (intTree *pTree)
+{
+    pTree->H = NULL;
+}
+
+bool funcintTreeEmpty (intTree *pTree)
+{
+    if (pTree->H == NULL)
+    {
+        return true;
+    }
+    // else
+    return false;
+}
 
