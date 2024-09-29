@@ -38,6 +38,20 @@ void funcintBSTNodeInit (intBSTNode *pBSTNode)
     pBSTNode->RC = NULL;
 }
 
+intBSTNode* funcintBSTNodeCreate (int value)
+{
+    intBSTNode *vpNew = (intBSTNode *) malloc(sizeof(intBSTNode));
+    if ( vpNew==NULL )
+    {
+        printf ("The Allocation has failled !!!");
+        exit (1);
+    }
+
+    funcintDNodeInit (vpNew);
+    vpNew->Value = value;
+
+    return vpNew;
+}
 
 
 void funcintBSTreeInit (intBSTree *pBSTree)
