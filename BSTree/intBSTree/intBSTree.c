@@ -38,19 +38,20 @@ void funcintBSTNodeInit (intBSTNode *pBSTNode)
     pBSTNode->RC = NULL;
 }
 
+
+
 void funcintBSTreeInit (intBSTree *pBSTree)
 {
     pBSTree = NULL;
 }
 
-
-// bool funcintBSTreeEmpty (intBSTNode *pBSTNode)
-// {
-//     if ( pBSTNode==NULL )
-//     {
-//         return true;
-//     }
-//     // else
-//     return false;
-// }
+bool funcintBSTreeEmpty (intBSTree *pBSTree)
+{
+    if ( pBSTree==NULL )
+    {
+        return true;
+    }
+    // else
+    return false;
+}
 
