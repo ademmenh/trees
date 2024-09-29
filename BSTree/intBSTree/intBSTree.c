@@ -70,13 +70,32 @@ void funcintBSTreeInit (intBSTree *pBSTree)
     pBSTree = NULL;
 }
 
-bool funcintBSTreeEmpty (intBSTree *pBSTree)
+bool funcintBSTreeEmpty (intBSTree BSTree)
 {
-    if ( pBSTree==NULL )
+    if ( BSTree==NULL )
     {
         return true;
     }
     // else
     return false;
+}
+
+void funcintBSTreeInsert (intBSTree *pBSTree, int value)
+{
+
+    if ( funcintBSTreeEmpty((*pBSTree)) )
+    {
+        pBSTree = funcintBSTNodeCreate(value);
+        return ;
+    }
+
+    if ( (*pBSTree)->Value <= value )
+    {
+        funcintBSTreeInsert (&((*pBSTree)->RC), value);
+    }
+    else
+    {
+        funcintBSTreeInsert (&((*pBSTree)->LC), value);
+    }
 }
 
