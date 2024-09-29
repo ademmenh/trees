@@ -19,29 +19,38 @@
 
 
 
-typedef struct intBSTree
+typedef struct intBSTNode
 {
     int Value;
-    struct intBSTree *LC;
-    struct intBSTree *RC;
-} intBSTree;
+    struct intBSTNode *LC;
+    struct intBSTNode *RC;
+} intBSTNode;
+
+typedef intBSTNode* intBSTree;
 
 
 
+
+void funcintBSTNodeInit (intBSTNode *pBSTNode)
+{
+    pBSTNode->Value = 0;
+    pBSTNode->LC = NULL;
+    pBSTNode->RC = NULL;
+}
 
 void funcintBSTreeInit (intBSTree *pBSTree)
 {
-    pBSTree->Value = 0;
-    pBSTree->LC = NULL;
-    pBSTree->RC = NULL;
+    pBSTree = NULL;
 }
 
-bool funcintBSTreeEmpty (intBSTree *pBSTree)
-{
-    if ( pBSTree==NULL )
-    {
-        return true;
-    }
-    // else
-    return false;
-}
+
+// bool funcintBSTreeEmpty (intBSTNode *pBSTNode)
+// {
+//     if ( pBSTNode==NULL )
+//     {
+//         return true;
+//     }
+//     // else
+//     return false;
+// }
+
