@@ -53,6 +53,17 @@ intBSTNode* funcintBSTNodeCreate (int value)
     return vpNew;
 }
 
+bool funcintBSTNodeLeaf (intBSTNode *pBSTNode)
+{
+    if ( pBSTNode->LC==NULL && pBSTNode->RC==NULL )
+    {
+        return true;
+    }
+    // else
+    return false;
+}
+
+
 
 void funcintBSTreeInit (intBSTree *pBSTree)
 {
