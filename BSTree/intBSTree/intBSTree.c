@@ -25,3 +25,23 @@ typedef struct intBSTree
     struct intBSTree *LC;
     struct intBSTree *RC;
 } intBSTree;
+
+
+
+
+void funcintBSTreeInit (intBSTree *pBSTree)
+{
+    pBSTree->Value = 0;
+    pBSTree->LC = NULL;
+    pBSTree->RC = NULL;
+}
+
+bool funcintBSTreeEmpty (intBSTree *pBSTree)
+{
+    if ( pBSTree==NULL )
+    {
+        return true;
+    }
+    // else
+    return false;
+}
