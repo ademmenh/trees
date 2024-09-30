@@ -146,18 +146,49 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
 
     if ( !funcintBSTreeEmpty(*pBSTree) )
     {
+
         if ( (*pBSTree)->Value == value )
         {
 
-            intBSTNode *vpMAXofMIN;
-            intBSTNode *vpCn = (*pBSTree)->RC;
-            while ( vpCn!=NULL )
+            if ( funcintBSTNodeLeaf (*pBSTree) )
             {
-                vpCn = vpCn->LC;
-            }
 
-            (*pBSTree)->Value = vpMAXofMIN->Value;
-            funcintBSTNodeFree (vpMAXofMIN);
+                intBSTNode *vpTemp = (*pBSTree);
+                (*pBSTree) = NULL;
+                funcintBSTNodeFree (vpTemp);
+
+            }
+            else if ( (*pBSTree)->LC==NULL || (*pBSTree)->RC==NULL )
+            {
+
+                intBSTNode *vpTemp;
+                if ((*pBSTree)->LC==NULL)
+                {
+                    vpTemp = (*pBSTree);
+                    (*pBSTree) = (*pBSTree)->RC;
+                    funcintBSTNodeFree (vpTemp);
+                }
+                else
+                {
+                    vpTemp = (*pBSTree);
+                    (*pBSTree) = (*pBSTree)->LC;
+                    funcintBSTNodeFree (vpTemp);
+                }
+
+            }
+            else
+            {
+                // searching for the max of mins
+                intBSTNode *vpCn = (*pBSTree)->RC;
+                while ( vpCn->LC!=NULL )
+                {
+                    vpCn = vpCn->LC;
+                }
+
+                (*pBSTree)->Value = vpCn->LC->Value;
+                vpCn->LC = NULL;
+                funcintBSTNodeFree (vpCn);
+            }
         }
 
 
@@ -182,6 +213,7 @@ int main ()
 
     funcintBSTreeCreate (&vtIntigers, 5);
     funcintBSTreeDisplay (vtIntigers);
+    printf ("\n");
     funcintBSTreeDelete (&vtIntigers, 10);
     funcintBSTreeDisplay (vtIntigers);
     return 0;
