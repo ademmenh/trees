@@ -134,12 +134,45 @@ void funcintBSTreeDisplay (intBSTree BSTree)
 {
     if ( !funcintBSTreeEmpty(BSTree) )
     {
-        printf ("%d", BSTree->Value);
+        printf ("%d ", BSTree->Value);
         funcintBSTreeDisplay (BSTree->LC);
         funcintBSTreeDisplay (BSTree->RC);
     }
 
 }
+
+void funcintBSTreeDelete (intBSTree *pBSTree, int value)
+{
+
+    if ( !funcintBSTreeEmpty(*pBSTree) )
+    {
+        if ( (*pBSTree)->Value == value )
+        {
+
+            intBSTNode *vpMAXofMIN;
+            intBSTNode *vpCn = (*pBSTree)->RC;
+            while ( vpCn!=NULL )
+            {
+                vpCn = vpCn->LC;
+            }
+
+            (*pBSTree)->Value = vpMAXofMIN->Value;
+            funcintBSTNodeFree (vpMAXofMIN);
+        }
+
+
+
+        if ( value < (*pBSTree)->Value )
+        {
+            funcintBSTreeDelete (&((*pBSTree)->RC), value);
+        }
+        else
+        {
+            funcintBSTreeDelete (&((*pBSTree)->LC), value);
+        }
+    }
+}
+
 
 
 int main ()
@@ -148,6 +181,8 @@ int main ()
     funcintBSTreeInit (&vtIntigers);
 
     funcintBSTreeCreate (&vtIntigers, 5);
+    funcintBSTreeDisplay (vtIntigers);
+    funcintBSTreeDelete (&vtIntigers, 10);
     funcintBSTreeDisplay (vtIntigers);
     return 0;
 }
