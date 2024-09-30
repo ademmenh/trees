@@ -125,9 +125,13 @@ void funcintBSTreeCreate (intBSTree *pBSTree, int TreeSize)
 
 void funcintBSTreeDisplay (intBSTree BSTree)
 {
-    printf ("%d", BSTree->Value);
-    funcintBSTreeDisplay (BSTree->LC);
-    funcintBSTreeDisplay (BSTree->RC);
+    if ( !funcintBSTreeEmpty(BSTree) )
+    {
+        printf ("%d", BSTree->Value);
+        funcintBSTreeDisplay (BSTree->LC);
+        funcintBSTreeDisplay (BSTree->RC);
+    }
+
 }
 
 
