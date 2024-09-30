@@ -141,7 +141,6 @@ void funcintBSTreeDisplay (intBSTree BSTree)
 
 }
 
-/*
 void funcintBSTreeDelete (intBSTree *pBSTree, int value)
 {
 
@@ -198,15 +197,15 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
 
         if ( value < (*pBSTree)->Value )
         {
-            funcintBSTreeDelete (&((*pBSTree)->RC), value);
+            funcintBSTreeDelete (&((*pBSTree)->LC), value);
         }
         else
         {
-            funcintBSTreeDelete (&((*pBSTree)->LC), value);
+            funcintBSTreeDelete (&((*pBSTree)->RC), value);
         }
     }
 }
-*/
+
 
 
 int main ()
