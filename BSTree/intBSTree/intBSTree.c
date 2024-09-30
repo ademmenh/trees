@@ -141,6 +141,7 @@ void funcintBSTreeDisplay (intBSTree BSTree)
 
 }
 
+/*
 void funcintBSTreeDelete (intBSTree *pBSTree, int value)
 {
 
@@ -179,16 +180,18 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
             else
             {
                 // searching for the max of mins
-                intBSTNode *vpCn = (*pBSTree)->RC;
-                while ( vpCn->LC!=NULL )
+                intBSTNode *vpCn = (*pBSTree)->LC;
+                while ( vpCn->RC!=NULL )
                 {
-                    vpCn = vpCn->LC;
+                    vpCn = vpCn->RC;
                 }
 
-                (*pBSTree)->Value = vpCn->LC->Value;
-                vpCn->LC = NULL;
-                funcintBSTNodeFree (vpCn);
+                (*pBSTree)->Value = vpCn->RC->Value;
+                funcintBSTNodeFree (vpCn->RC);
+                vpCn->RC = NULL;
             }
+            
+            return ;
         }
 
 
@@ -203,7 +206,7 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
         }
     }
 }
-
+*/
 
 
 int main ()
