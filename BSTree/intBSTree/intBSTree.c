@@ -120,3 +120,11 @@ void funcintBSTreeCreate (intBSTree *pBSTree, int TreeSize)
         funcintBSTreeInsert (pBSTree, viInput);
     }
 }
+
+void funcintBSTreeDisplay (intBSTree BSTree)
+{
+    printf ("%d", BSTree->Value);
+    funcintBSTreeDisplay (BSTree->LC);
+    funcintBSTreeDisplay (BSTree->RC);
+}
+
