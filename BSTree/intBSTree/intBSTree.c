@@ -40,6 +40,7 @@ void funcintBSTNodeInit (intBSTNode *pBSTNode)
 
 intBSTNode* funcintBSTNodeCreate (int value)
 {
+
     intBSTNode *vpNew = (intBSTNode *) malloc(sizeof(intBSTNode));
     if ( vpNew==NULL )
     {
@@ -47,7 +48,8 @@ intBSTNode* funcintBSTNodeCreate (int value)
         exit (1);
     }
 
-    funcintDNodeInit (vpNew);
+
+    funcintBSTNodeInit (vpNew);
     vpNew->Value = value;
 
     return vpNew;
@@ -67,7 +69,7 @@ bool funcintBSTNodeLeaf (intBSTNode *pBSTNode)
 
 void funcintBSTreeInit (intBSTree *pBSTree)
 {
-    pBSTree = NULL;
+    (*pBSTree) = NULL;
 }
 
 bool funcintBSTreeEmpty (intBSTree BSTree)
@@ -96,7 +98,7 @@ void funcintBSTreeInsert (intBSTree *pBSTree, int value)
 
     if ( funcintBSTreeEmpty((*pBSTree)) )
     {
-        pBSTree = funcintBSTNodeCreate(value);
+        (*pBSTree) = funcintBSTNodeCreate(value);
         return ;
     }
 
@@ -128,3 +130,13 @@ void funcintBSTreeDisplay (intBSTree BSTree)
     funcintBSTreeDisplay (BSTree->RC);
 }
 
+
+int main ()
+{
+    intBSTree vtIntigers;
+    funcintBSTreeInit (&vtIntigers);
+
+    funcintBSTreeCreate (&vtIntigers, 5);
+    funcintBSTreeDisplay (vtIntigers);
+    return 0;
+}
