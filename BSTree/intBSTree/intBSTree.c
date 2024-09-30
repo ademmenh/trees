@@ -80,6 +80,17 @@ bool funcintBSTreeEmpty (intBSTree BSTree)
     return false;
 }
 
+
+
+int funcintInput ()
+{
+    int viInput;
+    printf ("Enter your value: ");
+    scanf ("%d", &viInput);
+    
+    return viInput;
+}
+
 void funcintBSTreeInsert (intBSTree *pBSTree, int value)
 {
 
@@ -99,3 +110,13 @@ void funcintBSTreeInsert (intBSTree *pBSTree, int value)
     }
 }
 
+void funcintBSTreeCreate (intBSTree *pBSTree, int TreeSize)
+{
+    int viCn;
+    int viInput;
+    for ( viCn=0; viCn<TreeSize; viCn++ )
+    {
+        viInput = funcintInput ();
+        funcintBSTreeInsert (pBSTree, viInput);
+    }
+}
