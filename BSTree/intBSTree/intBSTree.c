@@ -65,6 +65,13 @@ bool funcintBSTNodeLeaf (intBSTNode *pBSTNode)
     return false;
 }
 
+void funcintBSTNodeFree (intBSTNode *pBSTNode)
+{
+    pBSTNode->Value = 0;
+    pBSTNode->LC = NULL;
+    pBSTNode->RC = NULL;
+}
+
 
 
 void funcintBSTreeInit (intBSTree *pBSTree)
