@@ -87,3 +87,21 @@ bool funcfloatBSTreeEmpty (floatBSTree BSTree)
     return false;
 }
 
+void funcfloatBSTreeInsert (floatBSTree *pBSTree, float value)
+{
+
+    if ( funcintBSTreeEmpty((*pBSTree)) )
+    {
+        (*pBSTree) = funcfloatBSTNodeCreate(value);
+        return ;
+    }
+
+    if ( (*pBSTree)->Value <= value )
+    {
+        funcfloatBSTreeInsert (&((*pBSTree)->RC), value);
+    }
+    else
+    {
+        funcfloatBSTreeInsert (&((*pBSTree)->LC), value);
+    }
+}
