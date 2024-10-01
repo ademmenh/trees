@@ -35,6 +35,23 @@ void funcfloatBSTNodeInit (floatBSTNode *pBSTNode)
 }
 
 
+floatBSTNode* funcfloatBSTNodeCreate (float value)
+{
+
+    floatBSTNode *vpNew = (floatBSTNode *) malloc(sizeof(floatBSTNode));
+    if ( vpNew==NULL )
+    {
+        printf ("The Allocation has failled !!!");
+        exit (1);
+    }
+
+
+    funcintBSTNodeInit (vpNew);
+    vpNew->Value = value;
+
+    return vpNew;
+}
+
 
 void funcfloatBSTNodeFree (floatBSTNode *pBSTNode)
 {
