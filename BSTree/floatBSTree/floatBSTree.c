@@ -34,7 +34,6 @@ void funcfloatBSTNodeInit (floatBSTNode *pBSTNode)
     pBSTNode->RC = NULL;
 }
 
-
 floatBSTNode* funcfloatBSTNodeCreate (float value)
 {
 
@@ -52,6 +51,15 @@ floatBSTNode* funcfloatBSTNodeCreate (float value)
     return vpNew;
 }
 
+bool funcfloatBSTNodeLeaf (floatBSTNode *pBSTNode)
+{
+    if ( pBSTNode->LC==NULL && pBSTNode->RC==NULL )
+    {
+        return true;
+    }
+    // else
+    return false;
+}
 
 void funcfloatBSTNodeFree (floatBSTNode *pBSTNode)
 {
