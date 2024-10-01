@@ -27,4 +27,21 @@ typedef struct floatBSTNode
 typedef floatBSTNode* floatBSTree;
 
 
+void funcfloatBSTNodeInit (floatBSTNode *pBSTNode)
+{
+    pBSTNode->Value = 0.0;
+    pBSTNode->LC = NULL;
+    pBSTNode->RC = NULL;
+}
+
+
+
+void funcfloatBSTNodeFree (floatBSTNode *pBSTNode)
+{
+    pBSTNode->Value = 0;
+    pBSTNode->LC = NULL;
+    pBSTNode->RC = NULL;
+    free (pBSTNode);
+}
+
 
