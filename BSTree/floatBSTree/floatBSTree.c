@@ -220,10 +220,23 @@ void funcfloatBSTreeDisplay (floatBSTree BSTree)
     if ( !funcfloatBSTreeEmpty(BSTree) )
     {
         printf ("%f ", BSTree->Value);
-        funcintBSTreeDisplay (BSTree->LC);
-        funcintBSTreeDisplay (BSTree->RC);
+        funcfloatBSTreeDisplay (BSTree->LC);
+        funcfloatBSTreeDisplay (BSTree->RC);
     }
 
 }
 
 
+
+int main ()
+{
+    floatBSTree vtFloats;
+    funcfloatBSTreeInit (&vtFloats);
+
+    funcfloatBSTreeCreate (&vtFloats, 10);
+    funcfloatBSTreeDisplay (vtFloats);
+    printf ("\n");
+    funcfloatBSTreeDelete (&vtFloats, 10);
+    funcfloatBSTreeDisplay (vtFloats);
+    return 0;
+}
