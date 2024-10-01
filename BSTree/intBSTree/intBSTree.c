@@ -1,7 +1,5 @@
 
-#ifndef _intBSTREE_C
-    #define _intBSTREE_C
-#endif
+#define _intBSTREE_C
 
 #ifndef _STDBOOL_H
     #include <stdbool.h>
@@ -236,7 +234,7 @@ int main ()
     intBSTree vtIntigers;
     funcintBSTreeInit (&vtIntigers);
 
-    funcintBSTreeCreate (&vtIntigers, 5);
+    funcintBSTreeCreate (&vtIntigers, 10);
     funcintBSTreeDisplay (vtIntigers);
     printf ("\n");
     funcintBSTreeDelete (&vtIntigers, 10);
