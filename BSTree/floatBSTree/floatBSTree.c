@@ -215,4 +215,15 @@ void funcfloatBSTreeCreate (floatBSTree *pBSTree, int TreeSize)
     }
 }
 
+void funcfloatBSTreeDisplay (floatBSTree BSTree)
+{
+    if ( !funcfloatBSTreeEmpty(BSTree) )
+    {
+        printf ("%f ", BSTree->Value);
+        funcintBSTreeDisplay (BSTree->LC);
+        funcintBSTreeDisplay (BSTree->RC);
+    }
+
+}
+
 
