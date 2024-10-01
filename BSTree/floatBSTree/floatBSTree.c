@@ -70,3 +70,20 @@ void funcfloatBSTNodeFree (floatBSTNode *pBSTNode)
 }
 
 
+
+
+void funcfloatBSTreeInit (floatBSTree *pBSTree)
+{
+    (*pBSTree) = NULL;
+}
+
+bool funcfloatBSTreeEmpty (floatBSTree BSTree)
+{
+    if ( BSTree==NULL )
+    {
+        return true;
+    }
+    // else
+    return false;
+}
+
