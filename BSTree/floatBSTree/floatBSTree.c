@@ -194,3 +194,25 @@ void funcfloatBSTreeDelete (floatBSTree *pBSTree, float value)
     }
 }
 
+
+int funcfloatInput ()
+{
+    float vfInput;
+    printf ("Enter your value: ");
+    scanf ("%f", &vfInput);
+    
+    return vfInput;
+}
+
+void funcfloatBSTreeCreate (floatBSTree *pBSTree, int TreeSize)
+{
+    int viCn;
+    float vfInput;
+    for ( viCn=0; viCn<TreeSize; viCn++ )
+    {
+        vfInput = funcfloatInput ();
+        funcfloatBSTreeInsert (pBSTree, vfInput);
+    }
+}
+
+
