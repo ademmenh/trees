@@ -179,6 +179,9 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
             else
             {
                 // searching for the max of mins
+
+                // in this case the BSTNode has two childs
+                // we use two pointers two pointers, one for swaping values and one for seting the BSTNode pointer
                 intBSTNode *vpCnBefore, *vpCn;
                 vpCnBefore = (*pBSTree);
                 vpCn = (*pBSTree)->LC;
@@ -189,8 +192,11 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
                     vpCn = vpCn->RC;
                 }
 
+
+
+                // spwaping
                 (*pBSTree)->Value = vpCn->Value;
-                
+                // handling the case where the vpCnBefore is the head of the tree
                 if ( vpCnBefore == (*pBSTree) )
                 {
                     vpCnBefore->LC = vpCn->LC;
@@ -199,11 +205,16 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
                 {
                     vpCnBefore->RC = NULL;
                 }
+                // free space after permutation
                 funcintBSTNodeFree (vpCn);
+
             }
+            
             
             return ;
         }
+
+
 
 
 
