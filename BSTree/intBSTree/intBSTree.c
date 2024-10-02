@@ -196,15 +196,16 @@ void funcintBSTreeDelete (intBSTree *pBSTree, int value)
 }
 
 
-
-int funcintInput ()
-{
-    int viInput;
-    printf ("Enter your value: ");
-    scanf ("%d", &viInput);
+#ifndef _func_INTINPUT
+    int funcintInput ()
+    {
+        int viInput;
+        printf ("Enter your value: ");
+        scanf ("%d", &viInput);
     
-    return viInput;
-}
+        return viInput;
+    }
+#endif
 
 void funcintBSTreeCreate (intBSTree *pBSTree, int TreeSize)
 {
@@ -226,18 +227,4 @@ void funcintBSTreeDisplay (intBSTree BSTree)
         funcintBSTreeDisplay (BSTree->RC);
     }
 
-}
-
-
-int main ()
-{
-    intBSTree vtIntigers;
-    funcintBSTreeInit (&vtIntigers);
-
-    funcintBSTreeCreate (&vtIntigers, 10);
-    funcintBSTreeDisplay (vtIntigers);
-    printf ("\n");
-    funcintBSTreeDelete (&vtIntigers, 10);
-    funcintBSTreeDisplay (vtIntigers);
-    return 0;
 }
