@@ -45,7 +45,7 @@ floatBSTNode* funcfloatBSTNodeCreate (float value)
     }
 
 
-    funcintBSTNodeInit (vpNew);
+    funcfloatBSTNodeInit (vpNew);
     vpNew->Value = value;
 
     return vpNew;
@@ -90,7 +90,7 @@ bool funcfloatBSTreeEmpty (floatBSTree BSTree)
 void funcfloatBSTreeInsert (floatBSTree *pBSTree, float value)
 {
 
-    if ( funcintBSTreeEmpty((*pBSTree)) )
+    if ( funcfloatBSTreeEmpty((*pBSTree)) )
     {
         (*pBSTree) = funcfloatBSTNodeCreate(value);
         return ;
